@@ -17,21 +17,35 @@
   the iteration process.
 -->
 
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]  
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]  
-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]  
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]  
+**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]
+**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]
+**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]
+**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]
 **Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
-**Project Type**: [single/web/mobile - determines source structure]  
-**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]  
-**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]  
+**Project Type**: [single/web/mobile - determines source structure]
+**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]
+**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]
 **Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
 
 ## Constitution Check
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+### Compliance Verification
+- [ ] Correctness and consistency across frontend, backend, and database maintained
+- [ ] Clear separation of concerns (Frontend, Backend, Auth) preserved
+- [ ] Security-first design with strict user isolation implemented
+- [ ] Spec-driven and reproducible implementation approach followed
+- [ ] Maintainability and scalability considerations addressed
+- [ ] All API behavior follows defined specification
+- [ ] Authentication enforced on every protected endpoint
+- [ ] JWT verification deterministic and stateless
+- [ ] Database access scoped to authenticated user
+- [ ] Clear request/response schemas with explicit validation
+- [ ] Technology stack aligns with constraints (Next.js 16+, FastAPI, SQLModel, Neon PostgreSQL, Better Auth)
+- [ ] Security standards met (JWT validation, user isolation, proper error handling)
+- [ ] API standards followed (RESTful design, proper HTTP codes, input validation)
+- [ ] Data integrity rules enforced (ownership, isolation, transactional operations)
 
 ## Project Structure
 

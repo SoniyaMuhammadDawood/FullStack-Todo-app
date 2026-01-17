@@ -25,21 +25,21 @@ description: "Task list template for feature implementation"
 - **Mobile**: `api/src/`, `ios/src/` or `android/src/`
 - Paths shown below assume single project - adjust based on plan.md structure
 
-<!-- 
+<!--
   ============================================================================
   IMPORTANT: The tasks below are SAMPLE TASKS for illustration purposes only.
-  
+
   The /sp.tasks command MUST replace these with actual tasks based on:
   - User stories from spec.md (with their priorities P1, P2, P3...)
   - Feature requirements from plan.md
   - Entities from data-model.md
   - Endpoints from contracts/
-  
+
   Tasks MUST be organized by user story so each story can be:
   - Implemented independently
   - Tested independently
   - Delivered as an MVP increment
-  
+
   DO NOT keep these sample tasks in the generated tasks.md file.
   ============================================================================
 -->
@@ -63,11 +63,13 @@ description: "Task list template for feature implementation"
 Examples of foundational tasks (adjust based on your project):
 
 - [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
+- [ ] T005 [P] Implement authentication/authorization framework (Better Auth with JWT)
 - [ ] T006 [P] Setup API routing and middleware structure
 - [ ] T007 Create base models/entities that all stories depend on
 - [ ] T008 Configure error handling and logging infrastructure
 - [ ] T009 Setup environment configuration management
+- [ ] T010 [P] Implement security middleware for JWT verification
+- [ ] T011 [P] Create user isolation and data scoping infrastructure
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -83,17 +85,21 @@ Examples of foundational tasks (adjust based on your project):
 
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
-- [ ] T010 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T011 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T012 [P] [US1] Contract test for [endpoint] in tests/contract/test_[name].py
+- [ ] T013 [P] [US1] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T014 [P] [US1] Security test for authentication enforcement in tests/security/test_[name].py
+- [ ] T015 [P] [US1] Data isolation test to ensure user data separation in tests/integration/test_data_isolation.py
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Create [Entity1] model in src/models/[entity1].py
-- [ ] T013 [P] [US1] Create [Entity2] model in src/models/[entity2].py
-- [ ] T014 [US1] Implement [Service] in src/services/[service].py (depends on T012, T013)
-- [ ] T015 [US1] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T016 [US1] Add validation and error handling
-- [ ] T017 [US1] Add logging for user story 1 operations
+- [ ] T016 [P] [US1] Create [Entity1] model in src/models/[entity1].py
+- [ ] T017 [P] [US1] Create [Entity2] model in src/models/[entity2].py
+- [ ] T018 [US1] Implement [Service] in src/services/[service].py (depends on T016, T017)
+- [ ] T019 [US1] Implement [endpoint/feature] in src/[location]/[file].py
+- [ ] T020 [US1] Add validation and error handling
+- [ ] T021 [US1] Add logging for user story 1 operations
+- [ ] T022 [US1] Ensure JWT authentication is enforced on all endpoints
+- [ ] T023 [US1] Verify user data isolation and ownership enforcement
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -107,15 +113,19 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Tests for User Story 2 (OPTIONAL - only if tests requested) ⚠️
 
-- [ ] T018 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T019 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T024 [P] [US2] Contract test for [endpoint] in tests/contract/test_[name].py
+- [ ] T025 [P] [US2] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T026 [P] [US2] Security test for authentication enforcement in tests/security/test_[name].py
+- [ ] T027 [P] [US2] Data isolation test to ensure user data separation in tests/integration/test_data_isolation.py
 
 ### Implementation for User Story 2
 
-- [ ] T020 [P] [US2] Create [Entity] model in src/models/[entity].py
-- [ ] T021 [US2] Implement [Service] in src/services/[service].py
-- [ ] T022 [US2] Implement [endpoint/feature] in src/[location]/[file].py
-- [ ] T023 [US2] Integrate with User Story 1 components (if needed)
+- [ ] T028 [P] [US2] Create [Entity] model in src/models/[entity].py
+- [ ] T029 [US2] Implement [Service] in src/services/[service].py
+- [ ] T030 [US2] Implement [endpoint/feature] in src/[location]/[file].py
+- [ ] T031 [US2] Integrate with User Story 1 components (if needed)
+- [ ] T032 [US2] Ensure JWT authentication is enforced on all endpoints
+- [ ] T033 [US2] Verify user data isolation and ownership enforcement
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -129,14 +139,18 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Tests for User Story 3 (OPTIONAL - only if tests requested) ⚠️
 
-- [ ] T024 [P] [US3] Contract test for [endpoint] in tests/contract/test_[name].py
-- [ ] T025 [P] [US3] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T034 [P] [US3] Contract test for [endpoint] in tests/contract/test_[name].py
+- [ ] T035 [P] [US3] Integration test for [user journey] in tests/integration/test_[name].py
+- [ ] T036 [P] [US3] Security test for authentication enforcement in tests/security/test_[name].py
+- [ ] T037 [P] [US3] Data isolation test to ensure user data separation in tests/integration/test_data_isolation.py
 
 ### Implementation for User Story 3
 
-- [ ] T026 [P] [US3] Create [Entity] model in src/models/[entity].py
-- [ ] T027 [US3] Implement [Service] in src/services/[service].py
-- [ ] T028 [US3] Implement [endpoint/feature] in src/[location]/[file].py
+- [ ] T038 [P] [US3] Create [Entity] model in src/models/[entity].py
+- [ ] T039 [US3] Implement [Service] in src/services/[service].py
+- [ ] T040 [US3] Implement [endpoint/feature] in src/[location]/[file].py
+- [ ] T041 [US3] Ensure JWT authentication is enforced on all endpoints
+- [ ] T042 [US3] Verify user data isolation and ownership enforcement
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -156,6 +170,10 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
 - [ ] TXXX Security hardening
 - [ ] TXXX Run quickstart.md validation
+- [ ] TXXX Verify all API endpoints follow RESTful design and proper HTTP status codes
+- [ ] TXXX Ensure all request/response schemas have explicit validation
+- [ ] TXXX Confirm all data operations are transactional
+- [ ] TXXX Validate that JWT verification is deterministic and stateless
 
 ---
 
@@ -248,4 +266,12 @@ With multiple developers:
 - Verify tests fail before implementing
 - Commit after each task or logical group
 - Stop at any checkpoint to validate story independently
+- Ensure all authentication is enforced on every protected endpoint
+- Verify JWT verification is deterministic and stateless
+- Confirm database access is scoped to authenticated user
+- Maintain clear request/response schemas with explicit validation
+- Follow technology stack constraints (Next.js 16+, FastAPI, SQLModel, Neon PostgreSQL, Better Auth)
+- Ensure security standards are met (JWT validation, user isolation, proper error handling)
+- Follow API standards (RESTful design, proper HTTP codes, input validation)
+- Enforce data integrity rules (ownership, isolation, transactional operations)
 - Avoid: vague tasks, same file conflicts, cross-story dependencies that break independence

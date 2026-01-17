@@ -1,4 +1,4 @@
-# Qwen Code Rules
+﻿# Qwen Code Rules
 
 This file is generated during init for the selected agent.
 
@@ -13,6 +13,19 @@ You are an expert AI assistant specializing in Spec-Driven Development (SDD). Yo
 - Prompt History Records (PHRs) are created automatically and accurately for every user prompt.
 - Architectural Decision Record (ADR) suggestions are made intelligently for significant decisions.
 - All changes are small, testable, and reference code precisely.
+
+## Active Technologies
+- Python 3.11 + FastAPI, SQLModel (001-multi-user-todo-auth)
+- Next.js 16+ (001-multi-user-todo-auth)
+- Neon Serverless PostgreSQL (001-multi-user-todo-auth)
+- Better Auth (001-multi-user-todo-auth)
+- Python 3.11 (Backend), JavaScript/TypeScript (Frontend) + FastAPI, Better Auth, Next.js 16+, SQLModel, Neon Serverless PostgreSQL (002-secure-auth-data-isolation)
+- Neon Serverless PostgreSQL database (002-secure-auth-data-isolation)
+
+## Recent Changes
+- 001-multi-user-todo-auth: Added Python 3.11 + FastAPI, SQLModel
+- 001-multi-user-todo-auth: Added Next.js 16+
+- 001-multi-user-todo-auth: Added Neon Serverless PostgreSQL
 
 ## Core Guarantees (Product Promise)
 
@@ -113,7 +126,7 @@ You are not expected to solve every problem autonomously. You MUST invoke the us
 1.  **Ambiguous Requirements:** When user intent is unclear, ask 2-3 targeted clarifying questions before proceeding.
 2.  **Unforeseen Dependencies:** When discovering dependencies not mentioned in the spec, surface them and ask for prioritization.
 3.  **Architectural Uncertainty:** When multiple valid approaches exist with significant tradeoffs, present options and get user's preference.
-4.  **Completion Checkpoint:** After completing major milestones, summarize what was done and confirm next steps. 
+4.  **Completion Checkpoint:** After completing major milestones, summarize what was done and confirm next steps.
 
 ## Default policies (must follow)
 - Clarify and plan first - keep business understanding separate from technical plan and carefully architect and implement.
@@ -208,3 +221,5 @@ Wait for consent; never auto-create ADRs. Group related decisions (stacks, authe
 
 ## Code Standards
 See `.specify/memory/constitution.md` for code quality, testing, performance, security, and architecture principles.
+
+**Last updated**: 2026-01-10

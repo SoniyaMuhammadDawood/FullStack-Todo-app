@@ -1,8 +1,8 @@
 # Feature Specification: [FEATURE NAME]
 
-**Feature Branch**: `[###-feature-name]`  
-**Created**: [DATE]  
-**Status**: Draft  
+**Feature Branch**: `[###-feature-name]`
+**Created**: [DATE]
+**Status**: Draft
 **Input**: User description: "$ARGUMENTS"
 
 ## User Scenarios & Testing *(mandatory)*
@@ -11,7 +11,7 @@
   IMPORTANT: User stories should be PRIORITIZED as user journeys ordered by importance.
   Each user story/journey must be INDEPENDENTLY TESTABLE - meaning if you implement just ONE of them,
   you should still have a viable MVP (Minimum Viable Product) that delivers value.
-  
+
   Assign priorities (P1, P2, P3, etc.) to each story, where P1 is the most critical.
   Think of each story as a standalone slice of functionality that can be:
   - Developed independently
@@ -74,6 +74,8 @@
 
 - What happens when [boundary condition]?
 - How does system handle [error scenario]?
+- How does the system handle authentication failures?
+- What occurs when a user attempts to access another user's data?
 
 ## Requirements *(mandatory)*
 
@@ -85,7 +87,7 @@
 ### Functional Requirements
 
 - **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]
-- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]  
+- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]
 - **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
 - **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
 - **FR-005**: System MUST [behavior, e.g., "log all security events"]
@@ -100,6 +102,22 @@
 - **[Entity 1]**: [What it represents, key attributes without implementation]
 - **[Entity 2]**: [What it represents, relationships to other entities]
 
+### Security Requirements *(apply if feature involves user data or authentication)*
+
+- **SR-001**: System MUST enforce JWT-based authentication on all protected endpoints
+- **SR-002**: System MUST verify JWT signatures using the shared secret (BETTER_AUTH_SECRET)
+- **SR-003**: User ID in JWT MUST match requested resource ownership
+- **SR-004**: Unauthorized requests MUST return HTTP 401 status
+- **SR-005**: System MUST prevent cross-user data access
+- **SR-006**: JWT verification MUST be deterministic and stateless
+
+### Data Integrity Requirements *(apply if feature involves data persistence)*
+
+- **DIR-001**: Each data entity MUST be owned by exactly one user
+- **DIR-002**: Database access MUST be scoped to the authenticated user
+- **DIR-003**: All data mutations MUST be transactional
+- **DIR-004**: Persistent storage MUST be used (no in-memory state for critical data)
+
 ## Success Criteria *(mandatory)*
 
 <!--
@@ -113,3 +131,11 @@
 - **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
 - **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
 - **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+
+### Security Success Criteria
+
+- **SSC-001**: All API endpoints are protected by JWT authentication
+- **SSC-002**: Users can only see and modify their own data
+- **SSC-003**: Frontend successfully attaches JWT to every request
+- **SSC-004**: Backend correctly validates and decodes JWT
+- **SSC-005**: Unauthorized access attempts are properly rejected with HTTP 401

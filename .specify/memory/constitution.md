@@ -1,55 +1,95 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- SYNC IMPACT REPORT
+Version change: N/A -> 1.0.0
+Modified principles: N/A (new constitution)
+Added sections: Core Principles, Technology Constraints, Security Standards, API Standards, Data Integrity Rules, Constraints, Success Criteria
+Removed sections: N/A
+Templates requiring updates: 
+- .specify/templates/plan-template.md ✅ updated
+- .specify/templates/spec-template.md ✅ updated  
+- .specify/templates/tasks-template.md ✅ updated
+- .specify/templates/commands/*.md ✅ reviewed
+- README.md ⚠ pending
+Follow-up TODOs: None
+-->
+
+# Todo Full-Stack Web Application Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Correctness and Consistency
+All components (frontend, backend, database) must maintain consistent behavior and data integrity. Every feature implementation must preserve correctness across the entire stack through comprehensive testing and validation.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Clear Separation of Concerns
+Frontend, Backend, and Authentication layers must remain strictly separated with well-defined interfaces. Each layer has distinct responsibilities: Frontend handles UI/presentation, Backend manages business logic, and Auth handles user identity and access control.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Security-First Design
+Security must be the primary consideration in all design decisions. Implement strict user isolation, enforce authentication on all protected resources, and follow security best practices throughout the application architecture.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Spec-Driven Implementation
+All development must follow a specification-driven approach where features are defined before implementation. Specifications must be clear, testable, and validated before code implementation begins.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Maintainability and Scalability
+Code must be written with long-term maintenance and scalability in mind. Implement clean architecture patterns that support multi-user usage and future feature expansion.
 
-### [PRINCIPLE_6_NAME]
+### VI. Data Integrity
+All data operations must maintain integrity through proper validation, transactional operations, and consistent state management. Each user's data must remain isolated and protected from unauthorized access.
 
+## Technology Constraints
 
-[PRINCIPLE__DESCRIPTION]
+- Frontend: Next.js 16+ (App Router)
+- Backend: Python FastAPI
+- ORM: SQLModel
+- Database: Neon Serverless PostgreSQL
+- Authentication: Better Auth (JWT-based)
+- Spec-Driven approach: Gemini Code + Spec-Kit Plus
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Security Standards
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+- All API routes require a valid JWT
+- JWT signature verified using shared secret (BETTER_AUTH_SECRET)
+- User ID in JWT must match requested resource ownership
+- Unauthorized requests return HTTP 401
+- Forbidden access to other users' data is not permitted under any condition
+- All authentication must be stateless and deterministic
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## API Standards
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+- RESTful endpoint design
+- Proper HTTP status codes for all responses
+- Input validation using schemas
+- Consistent error response format
+- Task ownership enforced on create, read, update, delete, and toggle actions
+- All API behavior must strictly follow the defined specification
+
+## Data Integrity Rules
+
+- Each task is owned by exactly one user
+- No cross-user data access
+- Persistent storage only (no in-memory state)
+- All mutations must be transactional
+- Database access must always be scoped to the authenticated user
+
+## Constraints
+
+- Must implement all 5 Basic Level Todo features
+- Must support multiple users concurrently
+- Backend must be stateless
+- Frontend and backend deployed as separate services
+- Environment-based configuration for secrets
+- Authentication must be enforced on every protected endpoint
+
+## Success Criteria
+
+- All API endpoints protected by JWT authentication
+- Users can only see and modify their own tasks
+- Frontend successfully attaches JWT to every request
+- Backend correctly validates and decodes JWT
+- Application functions end-to-end as a secure full-stack system
+- JWT verification must be deterministic and stateless
+- Clear request/response schemas using explicit validation
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution governs all development practices for the Todo Full-Stack Web Application. All code changes, architectural decisions, and feature implementations must align with these principles. Amendments to this constitution require explicit approval and documentation of the changes and their impact on existing systems.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-01-09 | **Last Amended**: 2026-01-09
