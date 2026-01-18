@@ -1,7 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useReducer, ReactNode } from 'react';
-import { Task, TaskFilter, TaskSort, Toast, ModalState } from '@/models/task';
+import { Task, TaskFilter, TaskSort, Toast, ModalState } from '../models/task';
 import { taskApi } from '../lib/api';
 
 // Define action types
