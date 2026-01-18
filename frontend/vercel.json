@@ -1,0 +1,4 @@
+{
+  "buildCommand": "NEXT_PRIVATE_LOCAL_WEBPACK=true next build",
+  "framework": "nextjs"
+}
