@@ -12,7 +12,7 @@ export default function DebugApiPage() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        console.log('Making request to:', process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000' + '/api/v1/tasks');
+        console.log('Making request to:', process.env.NEXT_PUBLIC_API_BASE_URL || 'https://soniya234-todo.hf.space' + '/api/v1/tasks');
         const response = await fetch(process.env.NEXT_PUBLIC_API_BASE_URL + '/api/v1/tasks');
         console.log('Response status:', response.status);
         

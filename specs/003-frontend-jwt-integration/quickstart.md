@@ -33,10 +33,10 @@ yarn install
 ### 4. Configure Environment Variables
 Create `.env.local` in the frontend directory:
 ```env
-NEXT_PUBLIC_API_BASE_URL=http://localhost:8000/api
+NEXT_PUBLIC_API_BASE_URL=https://soniya234-todo.hf.space/api
 NEXTAUTH_URL=http://localhost:3000
 BETTER_AUTH_SECRET=your-super-secret-key-here
-BETTER_AUTH_URL=http://localhost:8000
+BETTER_AUTH_URL=https://soniya234-todo.hf.space
 ```
 
 Create `.env` in the backend directory:

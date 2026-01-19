@@ -9,7 +9,7 @@ export default function DebugInfoPage() {
   // Get the API URL from environment variables
   useEffect(() => {
     // Log the API URL being used
-    const url = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:8000';
+    const url = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://soniya234-todo.hf.space';
     setApiUrl(url);
 
     // Log browser info

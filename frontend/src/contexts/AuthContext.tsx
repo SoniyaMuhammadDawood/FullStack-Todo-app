@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signIn = async (email: string, password: string) => {
     try {
-      const response = await fetch('http://localhost:8000/auth/signin', {
+      const response = await fetch('https://soniya234-todo.hf.space/auth/signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const signUp = async (email: string, username: string, password: string) => {
     try {
-      const response = await fetch('http://localhost:8000/auth/signup', {
+      const response = await fetch('https://soniya234-todo.hf.space/auth/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -88,7 +88,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const signOut = async () => {
     try {
       // Call the backend signout endpoint
-      await fetch('http://localhost:8000/auth/signout', {
+      await fetch('https://soniya234-todo.hf.space/auth/signout', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
