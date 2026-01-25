@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { sendMessageToGemini } from '@/lib/geminiService';
 import { getToolByName } from '@/mcp/tools';
-import { parseToolCall, ToolCall, determineAction } from '@/lib/chatbotUtils';
+import { parseToolCall, determineAction } from '@/lib/chatbotUtils';
 
 interface Message {
   id: string;
