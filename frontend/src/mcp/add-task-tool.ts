@@ -28,10 +28,12 @@ export const addTask = async (taskData: TaskData): Promise<any> => {
     return response.data;
   } catch (error) {
     console.error('Error adding task:', error);
-    if (axios.isAxiosError(error)) {
-      if (error.response?.status === 400) {
-        throw new Error(`Invalid task data: ${error.response.data.detail || 'Bad Request'}`);
-      } else if (error.response?.status === 503) {
+    // Check if it's an axios error by checking for response property
+    if (error && typeof error === 'object' && 'response' in error) {
+      const axiosError = error as any;
+      if (axiosError.response?.status === 400) {
+        throw new Error(`Invalid task data: ${axiosError.response.data?.detail || 'Bad Request'}`);
+      } else if (axiosError.response?.status === 503) {
         throw new Error('Service temporarily unavailable. Please try again later.');
       }
     }

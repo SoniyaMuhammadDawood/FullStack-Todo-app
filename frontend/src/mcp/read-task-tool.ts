@@ -10,6 +10,18 @@ export const readTask = async (taskId?: string): Promise<any> => {
     if (taskId) {
       // If taskId looks like a name (contains letters), we need to find the actual task ID first
       if (/^[a-zA-Z]/.test(taskId)) {
+        // Define a type for tasks
+        interface Task {
+          id: string;
+          title: string;
+          description?: string;
+          priority?: 'low' | 'medium' | 'high';
+          dueDate?: string;
+          completed: boolean;
+          createdAt: string;
+          updatedAt: string;
+        }
+
         // First get all tasks to find the matching one
         const allTasksResponse = await axios.get(url, {
           headers: {
@@ -17,7 +29,7 @@ export const readTask = async (taskId?: string): Promise<any> => {
           }
         });
 
-        const allTasks = allTasksResponse.data;
+        const allTasks = allTasksResponse.data as Task[];
 
         // Find task by exact title match first
         let matchingTask = allTasks.find((task: any) =>
@@ -68,12 +80,14 @@ export const readTask = async (taskId?: string): Promise<any> => {
     }
   } catch (error) {
     console.error('Error reading task(s):', error);
-    if (axios.isAxiosError(error)) {
-      if (error.response?.status === 404) {
+    // Check if it's an axios error by checking for response property
+    if (error && typeof error === 'object' && 'response' in error) {
+      const axiosError = error as any;
+      if (axiosError.response?.status === 404) {
         throw new Error(`Task with ID "${taskId}" not found.`);
-      } else if (error.response?.status === 400) {
+      } else if (axiosError.response?.status === 400) {
         throw new Error(`Invalid task ID format: "${taskId}".`);
-      } else if (error.response?.status === 503) {
+      } else if (axiosError.response?.status === 503) {
         throw new Error('Service temporarily unavailable. Please try again later.');
       }
     }
