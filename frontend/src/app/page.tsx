@@ -27,7 +27,7 @@ const Dashboard = () => {
   }
 
   if (!isAuthenticated) {
-    return null; // Redirect will happen via useEffect
+    return null; 
   }
 
   return <DashboardContent />;
