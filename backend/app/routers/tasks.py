@@ -119,6 +119,38 @@ async def toggle_task_completion(
             raise HTTPException(status_code=500, detail=f"Error toggling task completion: {str(e)}")
 
 
+@router.patch("/tasks/{task_id}/completion-status", response_model=TaskResponse)
+async def set_task_completion_status(
+    task_id: UUID,
+    task_update: TaskUpdate,
+    task_service: TaskService = Depends(get_task_service)
+):
+    """Set the completion status of a task"""
+    try:
+        task = await task_service.get_task_by_id(task_id)
+        if not task:
+            raise HTTPException(status_code=404, detail=f"Task with id {task_id} not found")
+
+        # Validate that only the completed field is provided
+        if task_update.completed is None:
+            raise HTTPException(status_code=400, detail="Completed field is required")
+
+        # Update the completion status
+        updated_task = await task_service.update_task(task_id, TaskUpdate(completed=task_update.completed))
+        return updated_task
+    except ValueError:
+        # Raised when task_id is not a valid UUID
+        raise HTTPException(status_code=400, detail="Invalid task ID format")
+    except Exception as e:
+        # Check if this is a database connection error
+        error_str = str(e)
+        if "connection" in error_str.lower() or "database" in error_str.lower() or "sqlalchemy" in error_str.lower():
+            print(f"Database error in set_task_completion_status: {error_str}")
+            raise HTTPException(status_code=503, detail="Service temporarily unavailable. Please try again later.")
+        else:
+            raise HTTPException(status_code=500, detail=f"Error setting task completion status: {str(e)}")
+
+
 @router.delete("/tasks/{task_id}", status_code=204)
 async def delete_task(
     task_id: UUID,

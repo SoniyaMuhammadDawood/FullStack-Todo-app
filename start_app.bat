@@ -14,6 +14,6 @@ start "Frontend Server" cmd /k "cd /d %~dp0\frontend && npm run dev"
 
 echo Applications are now running:
 echo Frontend: http://localhost:3000
-echo Backend: https://soniya234-todo.hf.space
+echo Backend: http://127.0.0.1:8000
 echo Please check the new command windows for server status.
 pause
