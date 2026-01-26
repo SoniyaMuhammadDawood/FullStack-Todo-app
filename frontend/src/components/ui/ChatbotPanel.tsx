@@ -28,6 +28,8 @@ const ChatbotPanel = ({ onClose }: { onClose: () => void }) => {
     scrollToBottom();
   }, [messages]);
 
+
+  //....
   const isTaskRelatedQuery = (query: string): boolean => {
     const taskRelatedKeywords = [
       'task', 'todo', 'to-do', 'item', 'work', 'job', 'assignment', 'activity',
