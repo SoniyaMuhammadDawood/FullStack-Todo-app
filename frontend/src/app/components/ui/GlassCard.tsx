@@ -8,9 +8,9 @@ interface GlassCardProps {
 
 const GlassCard: React.FC<GlassCardProps> = ({ children, className = '', onClick }) => {
   return (
-    <div 
+    <div
       className={`
-        relative rounded-2xl border border-white/20 bg-white/10 backdrop-blur-md
+        relative rounded-2xl border-2 border-green-800 bg-white/10 backdrop-blur-md
         shadow-glass hover:shadow-lg transition-all duration-300 ease-in-out
         ${onClick ? 'cursor-pointer hover:scale-105' : ''}
         ${className}

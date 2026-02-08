@@ -263,7 +263,7 @@ const ChatbotPanel = ({ onClose }: { onClose: () => void }) => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 w-full max-w-md h-[500px] flex flex-col bg-white rounded-2xl shadow-2xl border border-gray-200 z-50 overflow-hidden transform transition-transform duration-300">
+    <div className="fixed bottom-6 right-6 w-full max-w-md h-[500px] flex flex-col bg-white rounded-2xl shadow-2xl border-2 border-green-800 z-50 overflow-hidden transform transition-transform duration-300">
       {/* Header */}
       <div className="bg-gradient-to-r from-emerald-500 to-teal-600 p-4 text-white flex justify-between items-center">
         <div className="flex items-center space-x-2">
@@ -297,7 +297,7 @@ const ChatbotPanel = ({ onClose }: { onClose: () => void }) => {
                 message.sender === 'user'
                   ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-br-none'
                   : 'bg-gradient-to-r from-cyan-200 to-cyan-300 text-gray-800 rounded-bl-none'
-              } shadow-sm`}
+              } shadow-sm border border-green-800`}
             >
               {message.text}
             </div>
@@ -305,7 +305,7 @@ const ChatbotPanel = ({ onClose }: { onClose: () => void }) => {
         ))}
         {isLoading && (
           <div className="flex justify-start mb-4">
-            <div className="max-w-xs lg:max-w-md px-4 py-3 rounded-2xl bg-gradient-to-r from-cyan-200 to-cyan-300 text-gray-800 rounded-bl-none shadow-sm">
+            <div className="max-w-xs lg:max-w-md px-4 py-3 rounded-2xl bg-gradient-to-r from-cyan-200 to-cyan-300 text-gray-800 rounded-bl-none shadow-sm border border-green-800">
               <div className="flex space-x-2">
                 <div className="w-2 h-2 rounded-full bg-cyan-500 animate-bounce"></div>
                 <div className="w-2 h-2 rounded-full bg-cyan-500 animate-bounce delay-100"></div>
@@ -318,14 +318,14 @@ const ChatbotPanel = ({ onClose }: { onClose: () => void }) => {
       </div>
 
       {/* Input Area */}
-      <div className="border-t border-gray-200 p-3 bg-white">
+      <div className="border-t border-green-800 p-3 bg-white">
         <div className="flex items-center">
           <textarea
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Ask me anything..."
-            className="flex-1 border border-gray-300 rounded-2xl p-3 resize-none h-12 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm"
+            className="flex-1 border border-green-800 rounded-2xl p-3 resize-none h-12 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm"
             rows={1}
           />
           <button

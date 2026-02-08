@@ -33,15 +33,15 @@ const DashboardContent = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100 p-4 sm:p-6 md:p-8">
+    <div className="min-h-screen bg-gradient-to-br from-green-100 to-green-200 p-4 sm:p-6 md:p-8">
       <div className="max-w-7xl mx-auto">
         <header className="mb-8 flex flex-col sm:flex-row justify-between items-center">
           <div className="text-center sm:text-left mb-4 sm:mb-0">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800">{t('app.title')}</h1>
-            <p className="text-gray-600 mt-2">{t('app.description')}</p>
+            <h1 className="text-3xl md:text-4xl font-bold text-black">{t('app.title')}</h1>
+            <p className="text-gray-700 mt-2">{t('app.description')}</p>
           </div>
           <div className="flex items-center space-x-4">
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-gray-700">
               Welcome, {user?.username || user?.email}!
             </div>
             <button
@@ -59,9 +59,9 @@ const DashboardContent = () => {
         <div className="mb-8">
           <GlassCard>
             <div className="flex justify-between items-center">
-              <h2 className="text-xl font-semibold text-gray-800">{t('task.title')}</h2>
+              <h2 className="text-xl font-semibold text-black">{t('task.title')}</h2>
               <button
-                className="px-4 py-2 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 transition-colors"
+                className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
                 onClick={() => openModal('add')}
               >
                 {t('task.add')}
@@ -83,7 +83,7 @@ const DashboardContent = () => {
         ) : state.filteredTasks.length === 0 ? (
           <div className="text-center py-12">
             <div className="text-5xl mb-4">📋</div>
-            <h3 className="text-xl font-medium text-gray-900">{t('task.noTasks')}</h3>
+            <h3 className="text-xl font-medium text-black">{t('task.noTasks')}</h3>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 transition-all duration-300">

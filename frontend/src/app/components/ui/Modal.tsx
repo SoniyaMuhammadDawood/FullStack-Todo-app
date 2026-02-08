@@ -43,15 +43,15 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop with blur effect */}
-      <div 
+      <div
         className="fixed inset-0 bg-black/30 backdrop-blur-sm transition-opacity"
         onClick={onClose}
       />
-      
+
       {/* Modal content */}
-      <div 
+      <div
         ref={modalRef}
-        className="relative bg-white rounded-2xl shadow-xl w-full max-w-md transform transition-all duration-300 scale-in"
+        className="relative bg-white rounded-2xl shadow-xl border-2 border-green-800 w-full max-w-md transform transition-all duration-300 scale-in"
       >
         <div className="p-6">
           <div className="flex justify-between items-center mb-4">
@@ -66,7 +66,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, title, children }) => {
               </svg>
             </button>
           </div>
-          
+
           <div className="mt-2">
             {children}
           </div>

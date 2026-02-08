@@ -35,7 +35,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
 
   return (
     <GlassCard
-      className={`${task.completed ? 'opacity-60' : ''} hover:scale-105 hover:shadow-md transition-all duration-300 ease-in-out`}
+      className={`${task.completed ? 'opacity-60' : ''} hover:scale-105 hover:shadow-md transition-all duration-300 ease-in-out border-2 border-green-800`}
     >
       <div className="flex justify-between items-start">
         <div className="flex items-center space-x-3">

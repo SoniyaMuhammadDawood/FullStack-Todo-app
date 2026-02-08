@@ -25,14 +25,14 @@ const Toast: React.FC<ToastProps> = ({ toast, onClose }) => {
   const getToastStyles = () => {
     switch (toast.type) {
       case 'success':
-        return 'bg-emerald-100 border-emerald-400 text-emerald-700';
+        return 'bg-emerald-100 border-2 border-green-800 text-emerald-700';
       case 'error':
-        return 'bg-rose-100 border-rose-400 text-rose-700';
+        return 'bg-rose-100 border-2 border-green-800 text-rose-700';
       case 'warning':
-        return 'bg-yellow-100 border-yellow-400 text-yellow-700';
+        return 'bg-yellow-100 border-2 border-green-800 text-yellow-700';
       case 'info':
       default:
-        return 'bg-blue-100 border-blue-400 text-blue-700';
+        return 'bg-blue-100 border-2 border-green-800 text-blue-700';
     }
   };
 
