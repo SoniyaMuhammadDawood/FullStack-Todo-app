@@ -9,9 +9,6 @@ import uvicorn
 from app.db.database import engine
 from app.db.base import Base
 
-# Import all models to ensure they are registered with SQLAlchemy
-from app.models import Task, User  # noqa: F401
-
 
 app = FastAPI(
     title="Todo API",

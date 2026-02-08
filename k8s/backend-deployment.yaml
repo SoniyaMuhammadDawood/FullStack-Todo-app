@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: soniya-todo-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: soniya-todo-backend
+  template:
+    metadata:
+      labels:
+        app: soniya-todo-backend
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "soniya-todo-backend"
+        dapr.io/app-port: "8000"
+        dapr.io/log-level: "debug"
+    spec:
+      containers:
+      - name: soniya-todo-backend
+        image: soniya-todo-backend:latest
+        ports:
+        - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: soniya-todo-backend
+spec:
+  selector:
+    app: soniya-todo-backend
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+  type: ClusterIP
