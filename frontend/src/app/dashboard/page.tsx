@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
-import DashboardContent from './components/DashboardContent';
+import DashboardContent from '../components/DashboardContent';
 
 const Dashboard = () => {
   const { isAuthenticated, loading } = useAuth();

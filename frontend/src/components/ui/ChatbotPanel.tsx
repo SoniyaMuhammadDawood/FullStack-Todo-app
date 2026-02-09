@@ -263,9 +263,9 @@ const ChatbotPanel = ({ onClose }: { onClose: () => void }) => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 w-full max-w-md h-[500px] flex flex-col bg-white rounded-2xl shadow-2xl border-2 border-green-800 z-50 overflow-hidden transform transition-transform duration-300">
+    <div className="fixed bottom-6 right-6 w-full max-w-md h-[500px] flex flex-col bg-white rounded-2xl shadow-2xl border-2 border-blue-800 z-50 overflow-hidden transform transition-transform duration-300">
       {/* Header */}
-      <div className="bg-gradient-to-r from-emerald-500 to-teal-600 p-4 text-white flex justify-between items-center">
+      <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-4 text-white flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <div className="bg-white/20 p-1 rounded-full">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -295,9 +295,9 @@ const ChatbotPanel = ({ onClose }: { onClose: () => void }) => {
             <div
               className={`max-w-xs lg:max-w-md px-4 py-3 rounded-2xl ${
                 message.sender === 'user'
-                  ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-br-none'
-                  : 'bg-gradient-to-r from-cyan-200 to-cyan-300 text-gray-800 rounded-bl-none'
-              } shadow-sm border border-green-800`}
+                  ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-br-none'
+                  : 'bg-gradient-to-r from-blue-100 to-purple-100 text-gray-800 rounded-bl-none'
+              } shadow-sm border border-blue-800`}
             >
               {message.text}
             </div>
@@ -305,11 +305,11 @@ const ChatbotPanel = ({ onClose }: { onClose: () => void }) => {
         ))}
         {isLoading && (
           <div className="flex justify-start mb-4">
-            <div className="max-w-xs lg:max-w-md px-4 py-3 rounded-2xl bg-gradient-to-r from-cyan-200 to-cyan-300 text-gray-800 rounded-bl-none shadow-sm border border-green-800">
+            <div className="max-w-xs lg:max-w-md px-4 py-3 rounded-2xl bg-gradient-to-r from-blue-100 to-purple-100 text-gray-800 rounded-bl-none shadow-sm border border-blue-800">
               <div className="flex space-x-2">
-                <div className="w-2 h-2 rounded-full bg-cyan-500 animate-bounce"></div>
-                <div className="w-2 h-2 rounded-full bg-cyan-500 animate-bounce delay-100"></div>
-                <div className="w-2 h-2 rounded-full bg-cyan-500 animate-bounce delay-200"></div>
+                <div className="w-2 h-2 rounded-full bg-blue-500 animate-bounce"></div>
+                <div className="w-2 h-2 rounded-full bg-blue-500 animate-bounce delay-100"></div>
+                <div className="w-2 h-2 rounded-full bg-blue-500 animate-bounce delay-200"></div>
               </div>
             </div>
           </div>
@@ -318,21 +318,21 @@ const ChatbotPanel = ({ onClose }: { onClose: () => void }) => {
       </div>
 
       {/* Input Area */}
-      <div className="border-t border-green-800 p-3 bg-white">
+      <div className="border-t border-blue-800 p-3 bg-white">
         <div className="flex items-center">
           <textarea
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Ask me anything..."
-            className="flex-1 border border-green-800 rounded-2xl p-3 resize-none h-12 focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-sm"
+            className="flex-1 border border-blue-800 rounded-2xl p-3 resize-none h-12 focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
             rows={1}
           />
           <button
             onClick={handleSend}
             disabled={isLoading}
-            className={`ml-2 bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-4 py-3 rounded-2xl shadow-md ${
-              isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:from-emerald-600 hover:to-teal-700'
+            className={`ml-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-4 py-3 rounded-2xl shadow-md ${
+              isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:from-blue-600 hover:to-purple-700'
             }`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
